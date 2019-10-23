@@ -1,5 +1,6 @@
 #btn-container{
     border-bottom: 2px solid gray;
+    width: 100%;
     padding: 15px;
     margin-bottom: 10px;
 }
@@ -12,22 +13,39 @@
     text-align: center;
 }
 
-.gifBtn{
-    background-color: blueviolet;
-    color: white;
-    padding: 5px;
+.gifBtn, #submit{
+    background-color: gray;
+    color: black;
+    padding: 8px;
+    margin: 3px;
+    border-radius: 8px;
 }
 
 .gifDiv{
     display: inline-block;
     border: 2px solid gray;
     margin: 5px;
+    padding: 5px;
     background-color: black;
+    text-align: center;
 }
 
 #newBtnText{
-    float: right;
+    max-width: fit-content;
+    min-width: fit-content;
     padding: 15px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.addTen{
+    background-color: gray;
+    color: black;
+    padding: 15px;
+    border-radius: 8px;
 }
 
 .image{
@@ -42,5 +60,9 @@
 }
 
 body{
-    background-color: aquamarine;
+    background-color: rgb(201, 185, 188);
+}
+
+.formDiv{
+    margin: auto 26%;
 }
