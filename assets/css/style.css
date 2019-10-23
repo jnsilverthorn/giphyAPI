@@ -1,0 +1,46 @@
+#btn-container{
+    border-bottom: 2px solid gray;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+#gifs-go-here{
+    align-content: space-around;
+}
+
+#addBtn{
+    text-align: center;
+}
+
+.gifBtn{
+    background-color: blueviolet;
+    color: white;
+    padding: 5px;
+}
+
+.gifDiv{
+    display: inline-block;
+    border: 2px solid gray;
+    margin: 5px;
+    background-color: black;
+}
+
+#newBtnText{
+    float: right;
+    padding: 15px;
+}
+
+.image{
+    margin: 5px;
+}
+
+.rating{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+body{
+    background-color: aquamarine;
+}

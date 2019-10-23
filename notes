@@ -1,0 +1,31 @@
+var btnValue = $("#gifBtn").val();
+
+var startButtons = function() {
+    for(i = 0; i < initialBtns.length; i++){
+        $("#btn-container").append("<button id='gifBtn'>" + initialBtns[i] + "</button>");
+    }
+};
+
+$("#submit").on("click", function(event) {
+    if($("#userInput").val() !== ""){    
+        event.preventDefault();
+        $("#btn-container").append("<button id='gifBtn'>" + $("#userInput").val() + "</button>");
+        $("#userInput").val("");
+        console.log(btnValue)
+    };
+});
+
+
+
+$(document).on("click", "#gifBtn", function(){
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+        console.log($("#gifBtn").val().trim())        
+        $("#gifs-go-here").append();
+    })
+});
+
+startButtons();
