@@ -10,27 +10,28 @@ var initialBtns = [
     "Fantastic Mr. Fox",
     "Fox"
 ];
+
 var limit = 10;
 var offset = 0;
 var src;
 
-var startButtons = function() {
-    for(i = 0; i < initialBtns.length; i++){
+var startButtons = function () {
+    for (i = 0; i < initialBtns.length; i++) {
         $("#btn-container").append("<button class='gifBtn' value='" + initialBtns[i] + "'>" + initialBtns[i] + "</button>");
     }
 };
 
-$("#submit").on("click", function(event) {
+$("#submit").on("click", function (event) {
     event.preventDefault();
-    if($("#userInput").val() !== ""){    
+    if ($("#userInput").val() !== "") {
         event.preventDefault();
         $("#btn-container").append("<button class='gifBtn' value='" + $("#userInput").val() + "'>" + $("#userInput").val() + "</button>");
         $("#userInput").val("");
     };
 });
 
-$(document).ready(function(){
-    $(document).on("click", ".gifBtn", function(event2){
+$(document).ready(function () {
+    $(document).on("click", ".gifBtn", function (event2) {
         $("#gifs-go-here").text("");
         offset = 0;
         var btnValue = event2.currentTarget.attributes.value.value;
@@ -40,10 +41,10 @@ $(document).ready(function(){
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function(response){
+        }).then(function (response) {
             console.log(response);
             var results = response.data
-            for(i = 0; i < results.length; i++){
+            for (i = 0; i < results.length; i++) {
                 var srcStill = results[i].images.fixed_height_still.url;
                 var srcActive = results[i].images.fixed_height.url;
                 //stores the active url in object we can access later on
@@ -54,30 +55,30 @@ $(document).ready(function(){
                     "<p class='rating'>Rating: " + results[i].rating + "</p>" +
                     "</div>"
                 );
-            };        
+            };
         });
     });
 });
 
-$(document).on("click", ".image", function(){
+$(document).on("click", ".image", function () {
     $(this).attr("src", $(this)[0].attributes[1].value);
     console.log(this)
 });
 
-$(".addTen").on("click", function(event){
+$(".addTen").on("click", function (event) {
     event.preventDefault();
-    if($("#gifs-go-here").text() !== ""){
+    if ($("#gifs-go-here").text() !== "") {
         var btnValue = localStorage.getItem('gifBtnValue');
         var offsetInc = offset += 10;
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + btnValue + "&api_key=eFWU79IQle0aHvF1b7t8ZgxO5s6G1C9s" + "&limit=" + limit + "&offset=" + offsetInc;
         console.log(queryURL)
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response){
-        console.log(response);
-        var results = response.data
-            for(i = 0; i < results.length; i++){
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            var results = response.data
+            for (i = 0; i < results.length; i++) {
                 var srcStill = results[i].images.fixed_height_still.url;
                 var srcActive = results[i].images.fixed_height.url;
                 //stores the active url in object we can access later on
@@ -88,7 +89,7 @@ $(".addTen").on("click", function(event){
                     "<p class='rating'>Rating: " + results[i].rating + "</p>" +
                     "</div>"
                 );
-            };        
+            };
         });
     };
 });
